@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundimage2"
+    tools:context=".LoginPage">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/welcomeback"
+        android:layout_height="wrap_content"
+        android:text="Welcome \nBack"
+        android:paddingLeft="@dimen/_30sdp"
+        android:textSize="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:textColor="#568358"></TextView>
+
+    <EditText
+        android:id="@+id/enteremail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/welcomeback"
+        android:layout_marginHorizontal="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_90sdp"
+        android:backgroundTint="#E4DCDC"
+        android:hint="Email"
+        android:inputType="textWebEmailAddress"
+        android:maxLines="1"
+        android:textColorHint="#9E9393"></EditText>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/frl_password"
+        android:layout_below="@+id/enteremail"
+        >
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/password"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_30sdp"
+        android:maxLines="1"
+        android:backgroundTint="#E4DCDC"
+        android:inputType="textPassword"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:hint="Password"
+        android:textColorHint="#9E9393"></EditText>
+
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_below="@+id/frl_password"
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/simpleCheckBox"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remember login"
+            android:checked="false"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="right|center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/password"
+            android:layout_gravity="right"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="#306533"
+            android:textStyle="bold"
+
+            android:text="Forgot Password?"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_signin"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:background="@drawable/round_shape1"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:layout_below="@+id/frl_password"
+        android:backgroundTint="#18701C">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Sign in"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_6sdp"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/craccsignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_signin"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/createtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Account?"
+            android:textColor="#99000000"></TextView>
+
+        <TextView
+            android:id="@+id/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Sign up"
+            android:textColor="#2C5C2E"
+            android:textStyle="bold"></TextView>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/craccsignup"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/googlesignin"
+            android:background="@drawable/round_shape1"
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/googleicon"
+                app:cardCornerRadius="@dimen/_30sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:gravity="center"
+                android:text="Google"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_shape1"
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/facebookicon"
+                app:cardCornerRadius="@dimen/_30sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:gravity="center"
+                android:text="Facebook"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>

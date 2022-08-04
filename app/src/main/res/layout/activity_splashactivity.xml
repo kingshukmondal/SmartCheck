@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#EEFFDA"
+    tools:context=".Splashactivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_300sdp"
+
+        android:src="@drawable/logo2"
+        android:layout_margin="@dimen/_60sdp">
+    </ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:text="SmartCheck"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:fontFamily="@font/sdtil"
+        android:textSize="@dimen/_26sdp"
+        android:textColor="@color/specialgreen"></TextView>
+
+
+</LinearLayout>

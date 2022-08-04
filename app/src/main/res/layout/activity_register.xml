@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:background="@drawable/backgroundimage2"
+    tools:context=".Register">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/welcomeback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:paddingLeft="@dimen/_30sdp"
+        android:text="Register"
+        android:textColor="#568358"
+        android:textSize="@dimen/_30sdp"></TextView>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:layout_below="@+id/welcomeback"
+        android:layout_marginHorizontal="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_80sdp">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:baselineAligned="true"
+            android:hint="Enter Name"
+            app:boxStrokeWidth="0dp"
+
+            app:boxStrokeWidthFocused="0dp"
+            app:boxStrokeColor="#FFF"
+            app:boxBackgroundColor="#FFF"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/name"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#1EDEE4D6"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:textColor="#000"
+                android:inputType="textPersonName"
+                android:textColorHint="#9E9393" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/_20sdp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:boxStrokeColor="#FFF"
+            app:boxBackgroundColor="#FFF"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/email"
+                android:background="#1EDEE4D6"
+                android:hint="Enter Email"
+                android:textColor="#000"
+                android:inputType="textWebEmailAddress"
+                android:maxLines="1"
+                android:textColorHint="#9E9393"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/_20sdp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:boxStrokeColor="#FFF"
+            app:boxBackgroundColor="#FFF"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/password"
+                android:background="#1EDEE4D6"
+                android:hint="Enter Password"
+                android:textColor="#000"
+                android:inputType="textWebPassword"
+                android:maxLines="1"
+                android:textColorHint="#9E9393"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#4CAF50"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:boxStrokeColor="#FFF"
+            app:boxBackgroundColor="#FFF"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/confrimpassword"
+                android:background="#1EDEE4D6"
+                android:hint="Confirm Password"
+                android:inputType="textWebPassword"
+                android:textColor="#000"
+                android:maxLines="1"
+                android:textColorHint="#9E9393"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_signup"
+            android:layout_marginHorizontal="@dimen/_25sdp"
+            android:background="@drawable/round_shape1"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_below="@+id/ll_signup"
+            android:backgroundTint="#18701C">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Sign up"
+                android:gravity="center"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_6sdp"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/craccsignup"
+            android:layout_below="@id/ll_signin"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/createtext"
+                android:text="Already registered?"
+                android:textColor="#99000000"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/signup"
+                android:text=" Sign in"
+                android:textStyle="bold"
+                android:textColor="#479A4A"></TextView>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

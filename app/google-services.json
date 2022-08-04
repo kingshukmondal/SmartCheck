@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "758188511607",
+    "project_id": "smartcheck-6d547",
+    "storage_bucket": "smartcheck-6d547.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758188511607:android:d5f248dfb6bfbf44d55172",
+        "android_client_info": {
+          "package_name": "com.smartcheck.smartcheck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758188511607-slj0ut4r8pnqhslu4754rdaqo7uto2f6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApr4Y3t68uzEKShi8ARMHTYVKnk7L5ByQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758188511607-slj0ut4r8pnqhslu4754rdaqo7uto2f6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
