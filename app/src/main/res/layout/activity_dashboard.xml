@@ -4,47 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#32C8C8C8"
+    android:background="@drawable/bgimgae2"
     android:orientation="vertical"
     tools:context=".Dashboard">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_190sdp">
+        android:layout_height="@dimen/_130sdp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_150sdp"
+        android:layout_height="@dimen/_90sdp"
         android:background="@drawable/round_box1"
         android:paddingLeft="@dimen/_20sdp"
         android:orientation="vertical"
-        android:paddingTop="@dimen/_20sdp"
+        android:paddingTop="@dimen/_10sdp"
         android:backgroundTint="#18701C">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/_10sdp"
             android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-        <ImageView
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:background="@drawable/ic_baseline_arrow_back_24"
-            android:backgroundTint="@color/white">
-        </ImageView>
-            </LinearLayout>
+
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="3"
                 android:layout_height="wrap_content"
-                android:text="Dashboard"
-                android:gravity="center"
+                android:text="Categories"
+                android:gravity="left"
                 android:textColor="@color/white"
-                android:elevation="@dimen/_15sdp"
+
                 android:textStyle="bold"
                 android:textSize="@dimen/_28sdp"
                 ></TextView>
@@ -52,34 +41,16 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="end"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
+                    android:id="@+id/bottomsheet"
+                    android:layout_height="match_parent"
                     android:background="@drawable/ic_baseline_menu_24"
                     android:backgroundTint="@color/white">
                 </ImageView>
             </LinearLayout>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_30sdp"
-            android:background="@drawable/round_box2"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:backgroundTint="#DCFFFFFF">
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@null"
-                android:textSize="@dimen/_13sdp"
-                android:textColor="#000"
-                android:hint="Search details"
-                android:paddingHorizontal="@dimen/_10sdp"
-                android:textColorHint="#90393030"></EditText>
         </LinearLayout>
 
 
@@ -96,7 +67,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_30sdp"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
@@ -106,82 +76,61 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_marginHorizontal="@dimen/_17sdp"
-                android:elevation="@dimen/_15sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_height="wrap_content"
                 android:id="@+id/medicinecost"
                 android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_5sdp"
+                    android:layout_height="@dimen/_70sdp">
                 <ImageView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="@dimen/_70sdp"
-                    android:scaleType="fitCenter"
-                    android:elevation="@dimen/_15sdp"
-                    app:riv_corner_radius="@dimen/_20sdp"
-                    android:background="@drawable/round_box2"
-                    android:backgroundTint="#A8719EB3"
-                    android:padding="@dimen/_15sdp"
-                    android:src="@drawable/medicineicon"></ImageView>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#14CE93D8"
+                    android:src="@drawable/medicine3"></ImageView>
+                </androidx.cardview.widget.CardView>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_12sdp"
-                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/specialgreen"
+                    android:layout_marginVertical="@dimen/_20sdp"
                     android:gravity="center"
                     android:text="Medicine Cost"></TextView>
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_marginHorizontal="@dimen/_17sdp"
-                android:elevation="@dimen/_15sdp"
-                android:layout_height="wrap_content"
-                android:id="@+id/bloodavailbility"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="@dimen/_70sdp"
-                    android:scaleType="fitCenter"
-                    app:riv_corner_radius="@dimen/_20sdp"
-                    android:background="@drawable/round_box2"
-                    android:elevation="@dimen/_15sdp"
-                    android:backgroundTint="#ABF3A3BE"
-                    android:padding="@dimen/_15sdp"
-                    android:src="@drawable/syringe"></ImageView>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/_12sdp"
-                    android:layout_marginVertical="@dimen/_10sdp"
-                    android:gravity="center"
-                    android:text="Blood Availbility"></TextView>
 
-            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_marginHorizontal="@dimen/_17sdp"
-                android:elevation="@dimen/_15sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_height="wrap_content"
                 android:id="@+id/pathologyprice"
                 android:orientation="vertical">
-                <ImageView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="@dimen/_70sdp"
-                    android:scaleType="fitCenter"
-                    android:elevation="@dimen/_15sdp"
-                    app:riv_corner_radius="@dimen/_20sdp"
-                    android:background="@drawable/round_box2"
-                    android:backgroundTint="#9E812C"
-                    android:padding="@dimen/_15sdp"
-                    android:src="@drawable/labicon"></ImageView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_5sdp"
+                    android:layout_height="@dimen/_70sdp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:background="#60F7EDE2"
+                        android:src="@drawable/lab"></ImageView>
+                </androidx.cardview.widget.CardView>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_12sdp"
-                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/specialgreen"
+                    android:layout_marginVertical="@dimen/_20sdp"
                     android:gravity="center"
                     android:text="Pathology Price"></TextView>
 
@@ -210,84 +159,150 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_marginHorizontal="@dimen/_17sdp"
-                android:elevation="@dimen/_15sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_height="wrap_content"
                 android:id="@+id/raiseacomplain"
                 android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_5sdp"
+                    android:layout_height="@dimen/_70sdp">
                 <ImageView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="@dimen/_70sdp"
-                    android:scaleType="fitCenter"
-                    app:riv_corner_radius="@dimen/_20sdp"
-                    android:elevation="@dimen/_15sdp"
-                    android:background="@drawable/round_box2"
-                    android:backgroundTint="#FFAE94"
-                    android:padding="@dimen/_15sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#22FFF1D5"
+                    android:padding="@dimen/_13sdp"
                     android:src="@drawable/complain"></ImageView>
+                </androidx.cardview.widget.CardView>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_12sdp"
-                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:layout_marginVertical="@dimen/_20sdp"
                     android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/specialgreen"
                     android:text="Raise a complain"></TextView>
 
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
+                android:id="@+id/complainstatus"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_marginHorizontal="@dimen/_17sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:elevation="@dimen/_15sdp"
                 android:layout_height="wrap_content"
 
                 android:orientation="vertical">
-                <ImageView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="@dimen/_70sdp"
-                    android:scaleType="fitCenter"
-                    app:riv_corner_radius="@dimen/_20sdp"
-                    android:background="@drawable/round_box2"
-                    android:elevation="@dimen/_15sdp"
-                    android:backgroundTint="#D3FFA1"
-                    android:padding="@dimen/_15sdp"
-                    android:src="@drawable/status"></ImageView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_5sdp"
+                    android:layout_height="@dimen/_70sdp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_13sdp"
+                        android:background="#14EFF7F8"
+                        android:src="@drawable/status"></ImageView>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:text="Claim Status"
+                    android:textStyle="bold"
+                    android:textColor="@color/specialgreen"
+                    android:textSize="@dimen/_12sdp"></TextView>
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:elevation="@dimen/_15sdp"
+                android:layout_height="wrap_content"
+                android:id="@+id/bloodavailbility"
+                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_5sdp"
+                    android:layout_height="@dimen/_70sdp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#37FFF8E1"
+                        android:src="@drawable/blood2"></ImageView>
+                </androidx.cardview.widget.CardView>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_12sdp"
-                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/specialgreen"
+                    android:layout_marginVertical="@dimen/_20sdp"
                     android:gravity="center"
-                    android:text="Claim Status"></TextView>
+                    android:text="Blood Availbility"></TextView>
 
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:id="@+id/nearbylocation"
                 android:gravity="center"
-                android:layout_marginHorizontal="@dimen/_17sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:elevation="@dimen/_15sdp"
                 android:layout_height="wrap_content"
 
                 android:orientation="vertical">
-                <ImageView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="@dimen/_70sdp"
-                    android:scaleType="fitCenter"
-                    app:riv_corner_radius="@dimen/_20sdp"
-                    android:background="@drawable/round_box2"
-                    android:elevation="@dimen/_15sdp"
-                    android:backgroundTint="#829E9B"
-                    android:padding="@dimen/_15sdp"
-                    android:src="@drawable/history"></ImageView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_5sdp"
+                    android:layout_height="@dimen/_70sdp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#17A8F387"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/nearby2"></ImageView>
+                </androidx.cardview.widget.CardView>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_12sdp"
-                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:layout_marginVertical="@dimen/_20sdp"
                     android:gravity="center"
-                    android:text="History"></TextView>
+                    android:textStyle="bold"
+                    android:textColor="@color/specialgreen"
+                    android:text="Nearby Hopitals"></TextView>
 
             </LinearLayout>
 

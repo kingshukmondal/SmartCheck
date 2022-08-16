@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:paddingBottom="@dimen/_30sdp"
+        android:background="@drawable/borderimage"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal">
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        app:cardElevation="@dimen/_2sdp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="@dimen/_80sdp"
+        android:layout_marginTop="@dimen/_20sdp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/logowebp"/>
+    </androidx.cardview.widget.CardView>
+                <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+                    android:id="@+id/cancel"
+            android:background="@drawable/round_shape1"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:backgroundTint="#64DD17"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="Cancel"
+            android:textSize="@dimen/_17sdp"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_30sdp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/signout"
+            android:layout_height="@dimen/_30sdp"
+            android:backgroundTint="#D50000"
+            android:background="@drawable/round_shape1"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="Sign out"
+            android:gravity="center"
+            android:textSize="@dimen/_17sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_30sdp"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

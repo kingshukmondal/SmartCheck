@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundimage2"
+    android:background="@drawable/bgimg3"
     tools:context=".LoginPage">
 
     <TextView
@@ -38,7 +38,7 @@
         >
     <EditText
         android:layout_width="match_parent"
-        android:id="@+id/password"
+        android:id="@+id/tv_password"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_30sdp"
         android:maxLines="1"
@@ -138,6 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/googlesignin"
+            android:backgroundTint="@color/float_transparent"
             android:background="@drawable/round_shape1"
             android:orientation="horizontal"
             android:padding="@dimen/_5sdp">
@@ -154,34 +155,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/_20sdp"
                 android:gravity="center"
-                android:text="Google"
+                android:text="Sign in with Google"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_shape1"
-            android:orientation="horizontal"
-            android:padding="@dimen/_5sdp">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"
-                android:padding="@dimen/_10sdp"
-                android:src="@drawable/facebookicon"
-                app:cardCornerRadius="@dimen/_30sdp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="@dimen/_20sdp"
-                android:gravity="center"
-                android:text="Facebook"
-                android:textSize="@dimen/_14sdp"
-                android:textStyle="bold" />
-        </LinearLayout>
 
 
     </LinearLayout>

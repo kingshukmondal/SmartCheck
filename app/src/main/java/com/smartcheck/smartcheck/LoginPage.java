@@ -2,6 +2,7 @@ package com.smartcheck.smartcheck;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,28 +10,50 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.smartcheck.smartcheck.Adapter.Medicineadapter;
+import com.smartcheck.smartcheck.ModalClass.medicinemodalclass;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class LoginPage extends AppCompatActivity {
 
     TextView signup;
     LinearLayout googlesignin;
+    LinearLayout ll_signin;
     GoogleSignInClient mGoogleSignInClient;
     private static int RC_SIGN_IN=100;
+    TextView enteremail,tv_password;
+    ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
         getSupportActionBar().hide();
+        AlphaAnimation click_animation = new AlphaAnimation(1f, 0.8f);
+        enteremail=findViewById(R.id.enteremail);
+        tv_password=findViewById(R.id.tv_password);
+        pd=new ProgressDialog(this);
+        pd.setCancelable(false);
+
+
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -42,10 +65,23 @@ public class LoginPage extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         signup=findViewById(R.id.signup);
+        ll_signin=findViewById(R.id.ll_signin);
+        ll_signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pd.show();
+                pd.setContentView(R.layout.progess_anim);
+                pd.getWindow().setBackgroundDrawableResource(cn.pedant.SweetAlert.R.color.float_transparent);
+                datacheck();
+             //   pd.dismiss();
+
+            }
+        });
         googlesignin=findViewById(R.id.googlesignin);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                v.startAnimation(click_animation);
                 Intent i=new Intent(getApplicationContext(),Register.class);
                 startActivity(i);
             }
@@ -59,10 +95,95 @@ public class LoginPage extends AppCompatActivity {
         googlesignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pd.show();
+                pd.setContentView(R.layout.progess_anim);
+                pd.getWindow().setBackgroundDrawableResource(cn.pedant.SweetAlert.R.color.float_transparent);
+                v.startAnimation(click_animation);
                 signIn();
+
             }
         });
     }
+
+
+
+
+
+
+
+    private void datacheck() {
+
+        RequestQueue mRequestQueue = Volley.newRequestQueue(this);
+
+        //String Request initialized
+        String url="https://script.googleusercontent.com/macros/echo?user_content_key=1wGO9H59BAlppql2B1dpYSjsze20WWqQLF1XOheOzwSxeEWAg-0po55iU4qAspqkKVaTKmwIGlO6C_3O2cVqRvb7rEC6aT4Km5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCZD4xtlsnwRlYtHY0I5oYF5SavgPQ5PSLsHkAWnVRNVagFRIdP2Y_xqDMuy-b7NRCdyUM5Nj7AoBGo9EJpMZZwTfaGOGpT9u9z9Jw9Md8uu&lib=MptimliIvzs-D0tJ6mqm5tVluBn8SLxp7";
+        StringRequest mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONObject js = new JSONObject(response);
+                    JSONArray arr = js.getJSONArray("data");
+                    boolean x=false;
+
+
+
+
+                    for (int i = 0; i < arr.length(); i++) {
+                        JSONObject j = arr.getJSONObject(i);
+                        int id=j.getInt("id");
+                        Constant.key=new String(String.valueOf(id));
+
+                        String email = j.getString("email"),
+                                password = j.getString("password");
+
+
+                        if(email.equals(enteremail.getText().toString()) && password.equals(tv_password.getText().toString()))
+                        {
+                            Intent s=new Intent(getApplicationContext(),Dashboard.class);
+                            Constant.google=0;
+                            Constant.login=1;
+                            startActivity(s);
+                            x=true;
+                            finish();
+                            break;
+                        }
+                    }
+
+                    if(!x)
+                    Toast.makeText(LoginPage.this, "Invalid credentails!!", Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
+
+
+
+
+                } catch (Exception e) {
+
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(LoginPage.this, "error", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mRequestQueue.add(mStringRequest);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -86,7 +207,10 @@ public class LoginPage extends AppCompatActivity {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             // Signed in successfully, show authenticated UI.
+            pd.dismiss();
             Intent i=new Intent(getApplicationContext(),Dashboard.class);
+            Constant.google=1;
+            Constant.login=0;
             startActivity(i);
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.

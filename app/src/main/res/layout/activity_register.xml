@@ -40,7 +40,6 @@
             android:baselineAligned="true"
             android:hint="Enter Name"
             app:boxStrokeWidth="0dp"
-
             app:boxStrokeWidthFocused="0dp"
             app:boxStrokeColor="#FFF"
             app:boxBackgroundColor="#FFF"

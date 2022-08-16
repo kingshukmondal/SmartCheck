@@ -3,17 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/drawable/borderimage.xml" value="0.2395" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2395" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/drawable/round3.xml" value="0.2395" />
         <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/drawable/round_box1.xml" value="0.1355" />
         <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/drawable/round_box2.xml" value="0.1705" />
         <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/drawable/round_shape1.xml" value="0.1205" />
         <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/activity_bloodavailblitypage.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/activity_dashboard.xml" value="0.1917808219178082" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/activity_complain_status.xml" value="0.264" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/activity_dashboard.xml" value="0.2" />
         <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/activity_fullscreen.xml" value="0.22824074074074074" />
         <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/activity_login_page.xml" value="0.24074074074074073" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/activity_mediciinecostpage.xml" value="0.2439814814814815" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/activity_nearby_hospitals.xml" value="0.2439814814814815" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/activity_pathologycostpage.xml" value="0.2439814814814815" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/activity_raiseacomplain.xml" value="0.2439814814814815" />
         <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/activity_register.xml" value="0.1962962962962963" />
         <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/activity_splashactivity.xml" value="0.24074074074074073" />
         <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/activity_splashscreen.xml" value="0.22824074074074074" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/bottomsheet_dialogue_design.xml" value="0.24305555555555555" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/demo.xml" value="0.24305555555555555" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/loadingprogess.xml" value="0.24305555555555555" />
         <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/loginage.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/progess_anim.xml" value="0.24305555555555555" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/rowmedicine.xml" value="0.24305555555555555" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/layout/stylecard.xml" value="0.264" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/KINGSHUK MONDAL/AndroidStudioProjects/SmartCheck/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>
     </option>
   </component>

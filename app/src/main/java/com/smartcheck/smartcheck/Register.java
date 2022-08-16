@@ -1,37 +1,31 @@
 package com.smartcheck.smartcheck;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.cazaea.sweetalert.SweetAlertDialog;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
-import com.google.androidgamesdk.gametextinput.Listener;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.smartcheck.smartcheck.ModalClass.DataForRegsistration;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,25 +33,15 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 public class Register extends AppCompatActivity {
 
-    TextInputEditText name,email,password,confrimpassword;
+    TextInputEditText name, email, password, confrimpassword;
     LinearLayout ll_signup;
 
+    ProgressDialog pd;
 
-
-    String name1,email1,password1,cpassword;
+    String name1, email1, password1, cpassword;
     private DatabaseReference mDatabase;
-
-
-
-
-
 
 
     @Override
@@ -65,7 +49,16 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+
+
+
+
         getSupportActionBar().hide();
+        pd = new ProgressDialog(this);
+        pd.setIcon(R.drawable.mainlogo);
+        pd.setTitle("Registration");
+        pd.setMessage("Loading................");
+        pd.setCancelable(false);
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -77,14 +70,13 @@ public class Register extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
-        name=findViewById(R.id.name);
-        email=findViewById(R.id.email);
-        password=findViewById(R.id.password);
-        confrimpassword=findViewById(R.id.confrimpassword);
+        name = findViewById(R.id.name);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        confrimpassword = findViewById(R.id.confrimpassword);
 
 
-
-       // mDatabase = FirebaseDatabase.getInstance().getReference();
+        // mDatabase = FirebaseDatabase.getInstance().getReference();
         password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -93,8 +85,7 @@ public class Register extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(password.getText().toString().length()<5)
-                {
+                if (password.getText().toString().length() < 5) {
                     password.requestFocus();
                     password.setError("minimum 6 characters");
                 }
@@ -106,7 +97,7 @@ public class Register extends AppCompatActivity {
             }
         });
 
-        ll_signup=findViewById(R.id.ll_signup);
+        ll_signup = findViewById(R.id.ll_signup);
         ll_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,29 +106,36 @@ public class Register extends AppCompatActivity {
                 password1 = password.getText().toString();
                 cpassword = confrimpassword.getText().toString();
 
-                Login_Sucess();
+                pd.show();
+                pd.setContentView(R.layout.progess_anim);
+                pd.getWindow().setBackgroundDrawableResource(cn.pedant.SweetAlert.R.color.float_transparent);
 
-
-               /* if (name1.length() == 0) {
+                if (name1.length() == 0) {
                     name.requestFocus();
                     name.setError("Name cannot be empty.");
-                }
-                   else if (email1.length() == 0) {
+                    pd.dismiss();
+                } else if (email1.length() == 0) {
                     email.requestFocus();
                     email.setError("Email cannot be empty.");
+                    pd.dismiss();
                 } else if (password1.length() == 0) {
+                    pd.dismiss();
                     password.requestFocus();
                     password.setError("Required");
                 } else if (cpassword.length() == 0) {
+                    pd.dismiss();
                     confrimpassword.requestFocus();
                     confrimpassword.setError("Required");
                 } else if (password1.length() < 6) {
+                    pd.dismiss();
                     password.requestFocus();
                     password.setError("Password should be minimum 6 digits");
                 } else if (!email1.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")) {
+                    pd.dismiss();
                     email.requestFocus();
                     email.setError("Not a valid email address");
                 } else if (!password1.equals(cpassword)) {
+                    pd.dismiss();
                     confrimpassword.requestFocus();
                     confrimpassword.setError("wromg password");
                 } else {
@@ -147,10 +145,9 @@ public class Register extends AppCompatActivity {
                     confrimpassword.clearFocus();
 
 
-                   // DataForRegsistration dr=new DataForRegsistration(email1,cpassword,name1,"none","5664");
-                   LoginSucess();
-                }*/
-
+                    // DataForRegsistration dr=new DataForRegsistration(email1,cpassword,name1,"none","5664");
+                    sheetslogin();
+                }
             }
         });
 
@@ -158,89 +155,18 @@ public class Register extends AppCompatActivity {
 
 
 
-   /* public  void letsregister(DataForRegsistration dr){
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url="https://igmivigisfutech.com/lashesh2u/api/Api/registration";
-        final  StringRequest sr=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jobjResult = new JSONObject(response);
-                    int status=jobjResult.getInt("status");
-                    String message=jobjResult.getString("message");
-
-                    if(status==1)
-                    {
-                        Toast.makeText(Register.this, message, Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-
-
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Register.this, error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        })
-          {
-
-            @Override
-            public Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<String, String>();
-                params.put("email",email1);
-                params.put("pass",password1);
-                params.put("first_name", name1);
-                params.put("last_name","sdhasdoajso");
-                params.put("mobile","10000000");
-                return params;
-            }
-        };
-        queue.add(sr);
-    }*/
-
-
-
-
-
-
-
-
-    private void Login_Sucess() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://igmivigisfutech.com/lashesh2u/api/Api/registration",
+    void sheetslogin() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbzs48Db3aBtLp2ikiX0at-eXTSkCxNDfKyLLI22456v3lRyOBjzPbCShKL4qI7nq5fk5w/exec",
                 new Response.Listener<String>() {
-
-
                     @Override
                     public void onResponse(String response) {
-                        try {
 
-
-                            JSONObject jobjResult = new JSONObject(response);
-
-
-                            int status = jobjResult.getInt("status");
-                            String message = jobjResult.getString("message");
-
-
-                            if (status==1) {
-
-                                Toast.makeText(Register.this, "successfull", Toast.LENGTH_SHORT).show();
-                            } else {
-
-                                Toast.makeText(getApplicationContext()
-                                        , "message"+message, Toast.LENGTH_LONG).show();
-
-
-                            }
-
-
-                        } catch (JSONException e1) {
-                            e1.printStackTrace();
+                        pd.dismiss();
+                        if(response.equals("Success"))
+                        {
+                            startActivity(new Intent(getApplicationContext(),LoginPage.class));
                         }
-
+                        Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
 
                     }
                 },
@@ -248,40 +174,32 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        Toast toast =  Toast.makeText(Register.this, "Error in Login", Toast.LENGTH_SHORT);
                     }
-                }){
-
-
+                }
+        ) {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<String, String>();
-                params.put("email",email.getText().toString().trim());
-                params.put("pass",password.getText().toString().trim());
-                params.put("first_name",name.getText().toString().trim());
-                params.put("last_name","asdzxzxcx");
-                params.put("mobile","8955530145");
-                return params;
+            protected Map<String, String> getParams() {
+                Map<String, String> parmas = new HashMap<>();
 
+                //here we pass params
+                parmas.put("action", "addItem");
+                parmas.put("email", email.getText().toString().trim());
+                parmas.put("password", password.getText().toString().trim());
+                parmas.put("name", name.getText().toString().trim());
+
+                return parmas;
             }
-
-
-
         };
 
+        int socketTimeOut = 50000;// u can change this .. here it is 50 seconds
 
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                0,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RetryPolicy retryPolicy = new DefaultRetryPolicy(socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(retryPolicy);
 
-        VolleySingleton.getInstance().addToRequestque(stringRequest);
+        RequestQueue queue = Volley.newRequestQueue(this);
 
-
+        queue.add(stringRequest);
     }
-
-
-
 
 
 }

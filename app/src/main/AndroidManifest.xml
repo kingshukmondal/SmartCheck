@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.smartcheck.smartcheck" >
+    package="com.smartcheck.smartcheck">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".VolleySingleton"
@@ -15,15 +17,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCheck"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".NearbyHospitals"
+            android:exported="false" />
+        <activity
+            android:name=".ComplainStatus"
+            android:exported="false" />
         <activity
             android:name=".Splashactivity"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Register"
@@ -32,9 +40,11 @@
             android:name=".Raiseacomplain"
             android:exported="false" />
         <activity
+            android:name=".Dashboard"
+            android:exported="false" />
+        <activity
             android:name=".LoginPage"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".Pathologycostpage"
             android:exported="false" />
@@ -43,9 +53,6 @@
             android:exported="false" />
         <activity
             android:name=".Mediciinecostpage"
-            android:exported="false" />
-        <activity
-            android:name=".Dashboard"
             android:exported="false" />
     </application>
 
