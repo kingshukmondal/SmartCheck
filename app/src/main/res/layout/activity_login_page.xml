@@ -58,25 +58,8 @@
         android:layout_marginHorizontal="@dimen/_25sdp"
         android:layout_below="@+id/frl_password"
         android:orientation="horizontal">
-        <CheckBox
-            android:id="@+id/simpleCheckBox"
-            android:visibility="gone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Remember login"
-            android:checked="false"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:gravity="right|center_vertical"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/password"
-            android:layout_gravity="right"
-            android:textSize="@dimen/_12sdp"
-            android:textColor="#306533"
-            android:textStyle="bold"
+  >
 
-            android:text="Forgot Password?"></TextView>
     </LinearLayout>
 
     <LinearLayout
@@ -125,9 +108,9 @@
     </LinearLayout>
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
+        android:id="@+id/justfor"
         android:layout_height="wrap_content"
         android:layout_below="@+id/craccsignup"
         android:layout_marginTop="@dimen/_50sdp"
@@ -135,11 +118,11 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/googlesignin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/googlesignin"
-            android:backgroundTint="@color/float_transparent"
             android:background="@drawable/round_shape1"
+            android:backgroundTint="@color/float_transparent"
             android:orientation="horizontal"
             android:padding="@dimen/_5sdp">
 
@@ -161,7 +144,21 @@
         </LinearLayout>
 
 
-
-
     </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/termsandconditions"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/justfor"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:gravity="center"
+        android:textSize="@dimen/_12sdp"
+        android:layout_gravity="bottom"
+        android:textColor="#306533"
+        android:fontFamily="@font/val"
+        android:text="Terms and Conditions"
+        tools:ignore="NotSibling"></TextView>
 </RelativeLayout>

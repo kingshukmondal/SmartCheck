@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_10sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/_170sdp"
+       android:layout_marginVertical="@dimen/_10sdp"
+       android:layout_marginHorizontal="@dimen/_10sdp"
+       app:cardCornerRadius="@dimen/_17sdp"
+       app:cardElevation="@dimen/_10sdp">
+
+      <ImageView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="@drawable/card2"/>
+
+
+      <ImageView
+          android:id="@+id/bloodgrp"
+          android:layout_width="@dimen/_70sdp"
+          android:layout_height="@dimen/_70sdp"
+          android:layout_gravity="center_vertical"
+          android:src="@drawable/a_pos"
+          android:layout_marginLeft="@dimen/_10sdp"/>
+
+
+
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+
+          android:layout_gravity="right|center_vertical"
+          android:layout_marginRight="@dimen/_5sdp"
+          android:orientation="vertical">
+         <TextView
+             android:id="@+id/name"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:textSize="@dimen/_15sdp"
+             android:gravity="right"
+             android:layout_marginVertical="@dimen/_10sdp"
+             android:text="Kingshuk Mondal"
+             android:padding="@dimen/_4sdp"
+             android:textStyle="bold"
+             android:textAllCaps="true"
+             android:textColor="@color/specialgreen"/>
+         <TextView
+             android:id="@+id/contact"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:textSize="@dimen/_12sdp"
+             android:gravity="right"
+             android:text="DOB : 29-06-2001"
+             android:padding="@dimen/_4sdp"
+             android:textStyle="bold"
+             android:textAllCaps="true"
+             android:textColor="@color/specialgreen"/>
+
+
+         <TextView
+             android:id="@+id/dateoflast"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:textSize="@dimen/_12sdp"
+             android:gravity="right"
+             android:text="Submission :29-06-2001"
+             android:padding="@dimen/_4sdp"
+             android:textStyle="bold"
+             android:textColor="@color/specialgreen"/>
+
+
+         <TextView
+             android:id="@+id/location"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:textSize="@dimen/_12sdp"
+             android:gravity="right"
+             android:text="Rs 15000"
+             android:padding="@dimen/_4sdp"
+             android:textStyle="bold"
+             android:textColor="@color/specialgreen"/>
+      </LinearLayout>
+
+      <TextView
+          android:id="@+id/age"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="bottom"
+          android:layout_marginLeft="@dimen/_20sdp"
+          android:layout_marginBottom="@dimen/_20sdp"
+          android:fontFamily="@font/val"
+          android:gravity="center"
+          android:text="54 years"
+          android:textColor="#D50000"
+          android:textSize="@dimen/_20sdp"
+          android:textStyle="bold"/>
+   </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

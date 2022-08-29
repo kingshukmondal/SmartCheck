@@ -4,13 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NearbyHospitals">
-
-    <fragment
+    tools:context=".nearby_hospitals">
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="10"
-        android:id="@+id/mapfragmnet"
-        android:name="com.google.android.gms.maps.SupportMapFragment"/>
+        tools:context=".fragments.StatusFragment">
+
+        <WebView
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></WebView>
+
+    </FrameLayout>
+
 
 </LinearLayout>

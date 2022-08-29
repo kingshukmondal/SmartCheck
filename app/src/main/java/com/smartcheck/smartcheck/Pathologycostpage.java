@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -81,6 +82,16 @@ public class Pathologycostpage extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
+            }
+        });
+
+
+        ImageView iv_back=findViewById(R.id.iv_back);
+        iv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),Dashboard.class);
+                startActivity(i);
             }
         });
 

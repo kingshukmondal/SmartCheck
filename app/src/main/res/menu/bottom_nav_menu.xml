@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Donor"
+        android:title="Donor"
+        android:icon="@drawable/d"/>
+    <item
+        android:id="@+id/Receiver"
+        android:title="Receiver"
+        android:icon="@drawable/ic_baseline_bloodtype_24"/>
+
+</menu>

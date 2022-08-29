@@ -2,10 +2,14 @@ package com.smartcheck.smartcheck;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +40,7 @@ public class ComplainStatus extends AppCompatActivity {
     List<ComplainModalClass> list;
     ComplainAdapter adapter;
     TextView totalcount,setelled;
+    ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +58,26 @@ public class ComplainStatus extends AppCompatActivity {
         recyclerviewcards=findViewById(R.id.recyclerviewcards);
         manager = new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL, false);
         recyclerviewcards.setLayoutManager(manager);
+        recyclerviewcards.setItemAnimator(new DefaultItemAnimator());
+        recyclerviewcards.addItemDecoration(new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.HORIZONTAL));
         list=new ArrayList<>();
         totalcount=findViewById(R.id.totalcount);
         setelled=findViewById(R.id.setelled);
+        pd=new ProgressDialog(this);
+        pd.setCancelable(false);
+        pd.show();
+        pd.setContentView(R.layout.progess_anim);
+        pd.getWindow().setBackgroundDrawableResource(cn.pedant.SweetAlert.R.color.float_transparent);
+
+
+        LinearLayout iv_back=findViewById(R.id.back);
+        iv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),Dashboard.class);
+                startActivity(i);
+            }
+        });
 
         DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("ComplainDetails").child(Constant.key);
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -72,12 +95,13 @@ public class ComplainStatus extends AppCompatActivity {
                 setelled.setText(String.valueOf(count));
                 adapter=new ComplainAdapter(getApplicationContext(),list);
                 recyclerviewcards.setAdapter(adapter);
-
+                pd.dismiss();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(ComplainStatus.this, "Error in loading!!", Toast.LENGTH_SHORT).show();
+                pd.dismiss();
             }
         });
 

@@ -23,8 +23,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,7 +52,7 @@ public class Raiseacomplain extends AppCompatActivity {
 
     EditText dateEdt,dateofdouments;
     Button btSelect;
-    TextView docid,submit;
+    TextView docid,submit,submit_disable;
     ActivityResultLauncher<Intent> resultLauncher;
     CardView uploaddocuments;
     Uri sUri;
@@ -81,8 +84,55 @@ public class Raiseacomplain extends AppCompatActivity {
         amount2=findViewById(R.id.amount2);
         aadhar=findViewById(R.id.aadhar);
         check=findViewById(R.id.check);
+        submit_disable=findViewById(R.id.submit_disable);
+
+        submit=findViewById(R.id.submit);
         pd=new ProgressDialog(this);
         pd.setCancelable(false);
+
+
+
+        check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                if ( isChecked )
+                {
+                    // perform logic
+                    submit.setVisibility(View.VISIBLE);
+                    submit_disable.setVisibility(View.GONE);
+                }
+                else
+                {
+                    submit.setVisibility(View.GONE);
+                    submit_disable.setVisibility(View.VISIBLE);
+                }
+
+            }
+        });
+
+
+        submit_disable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Raiseacomplain.this, "Accept the Terms & Conditions", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+        ImageView  iv_back=findViewById(R.id.back);
+        iv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),Dashboard.class);
+                startActivity(i);
+            }
+        });
+
+
+
 
 
 
@@ -96,41 +146,42 @@ public class Raiseacomplain extends AppCompatActivity {
 
 
         dateEdt=findViewById(R.id.dateofbirth);
-        dateEdt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dateEdt.setError(null);
-                // on below line we are getting
-                // the instance of our calendar.
-                final Calendar c = Calendar.getInstance();
+            dateEdt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dateEdt.setError(null);
+                    // on below line we are getting
+                    // the instance of our calendar.
+                    final Calendar c = Calendar.getInstance();
 
-                // on below line we are getting
-                // our day, month and year.
-                int year = c.get(Calendar.YEAR);
-                int month = c.get(Calendar.MONTH);
-                int day = c.get(Calendar.DAY_OF_MONTH);
+                    // on below line we are getting
+                    // our day, month and year.
+                    int year = c.get(Calendar.YEAR);
+                    int month = c.get(Calendar.MONTH);
+                    int day = c.get(Calendar.DAY_OF_MONTH);
 
-                // on below line we are creating a variable for date picker dialog.
-                DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        // on below line we are passing context.
-                        Raiseacomplain.this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-                                // on below line we are setting date to our edit text.
-                                dateEdt.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                    // on below line we are creating a variable for date picker dialog.
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(
+                            // on below line we are passing context.
+                            Raiseacomplain.this,
+                            new DatePickerDialog.OnDateSetListener() {
+                                @Override
+                                public void onDateSet(DatePicker view, int year,
+                                                      int monthOfYear, int dayOfMonth) {
+                                    // on below line we are setting date to our edit text.
+                                    dateEdt.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
 
-                            }
-                        },
-                        // on below line we are passing year,
-                        // month and day for selected date in our date picker.
-                        year, month, day);
-                // at last we are calling show to
-                // display our date picker dialog.
-                datePickerDialog.show();
-            }
-        });
+                                }
+                            },
+                            // on below line we are passing year,
+                            // month and day for selected date in our date picker.
+                            year, month, day);
+                    datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+                    // at last we are calling show to
+                    // display our date picker dialog.
+                    datePickerDialog.show();
+                }
+            });
 
 
         dateofdouments=findViewById(R.id.dateofdouments);
@@ -164,6 +215,16 @@ public class Raiseacomplain extends AppCompatActivity {
                         // on below line we are passing year,
                         // month and day for selected date in our date picker.
                         year, month, day);
+
+
+
+
+                Calendar today = Calendar.getInstance();
+                Calendar twoDaysAgo = (Calendar) today.clone();
+                twoDaysAgo.add(Calendar.YEAR, -9);
+
+                datePickerDialog.getDatePicker().setMinDate(twoDaysAgo.getTimeInMillis());
+                datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
                 // at last we are calling show to
                 // display our date picker dialog.
                 datePickerDialog.show();
@@ -229,7 +290,6 @@ public class Raiseacomplain extends AppCompatActivity {
 
 
 
-        submit=findViewById(R.id.submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

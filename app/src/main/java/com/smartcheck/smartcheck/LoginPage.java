@@ -38,10 +38,11 @@ public class LoginPage extends AppCompatActivity {
     TextView signup;
     LinearLayout googlesignin;
     LinearLayout ll_signin;
+    TextView termsandconditions;
     GoogleSignInClient mGoogleSignInClient;
     private static int RC_SIGN_IN=100;
     TextView enteremail,tv_password;
-    ProgressDialog pd;
+        ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,14 +65,22 @@ public class LoginPage extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        termsandconditions=findViewById(R.id.termsandconditions);
+        termsandconditions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),TermsandCondt.class));
+            }
+        });
+
         signup=findViewById(R.id.signup);
         ll_signin=findViewById(R.id.ll_signin);
         ll_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pd.show();
-                pd.setContentView(R.layout.progess_anim);
-                pd.getWindow().setBackgroundDrawableResource(cn.pedant.SweetAlert.R.color.float_transparent);
+                    pd.show();
+                    pd.setContentView(R.layout.progess_anim);
+                    pd.getWindow().setBackgroundDrawableResource(cn.pedant.SweetAlert.R.color.float_transparent);
                 datacheck();
              //   pd.dismiss();
 
@@ -116,7 +125,7 @@ public class LoginPage extends AppCompatActivity {
         RequestQueue mRequestQueue = Volley.newRequestQueue(this);
 
         //String Request initialized
-        String url="https://script.googleusercontent.com/macros/echo?user_content_key=1wGO9H59BAlppql2B1dpYSjsze20WWqQLF1XOheOzwSxeEWAg-0po55iU4qAspqkKVaTKmwIGlO6C_3O2cVqRvb7rEC6aT4Km5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCZD4xtlsnwRlYtHY0I5oYF5SavgPQ5PSLsHkAWnVRNVagFRIdP2Y_xqDMuy-b7NRCdyUM5Nj7AoBGo9EJpMZZwTfaGOGpT9u9z9Jw9Md8uu&lib=MptimliIvzs-D0tJ6mqm5tVluBn8SLxp7";
+        String url="https://script.google.com/macros/s/AKfycbwXIXqkXPHtHa67x2mEQvHbF8U4kdKA9OkIBg1f2BXfB6NvZttK24aZKrJkCrPp6oMclA/exec";
         StringRequest mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

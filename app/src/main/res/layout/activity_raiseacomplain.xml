@@ -379,7 +379,13 @@
                 android:paddingHorizontal="@dimen/_10sdp"
                 android:text="I Agree that all the Details entered are correct and valid"/>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_300sdp"/>
         </LinearLayout>
+
+
+
 
 
 
@@ -395,6 +401,21 @@
         android:textStyle="bold"
         android:text="Submit"
         android:background="@color/specialgreen"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:paddingVertical="@dimen/_10sdp"></TextView>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/submit_disable"
+        android:textColor="#AEBABF"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold"
+        android:text="Submit"
+        android:background="@color/donor1_background"
         android:gravity="center"
         android:layout_gravity="bottom"
         android:paddingVertical="@dimen/_10sdp"></TextView>

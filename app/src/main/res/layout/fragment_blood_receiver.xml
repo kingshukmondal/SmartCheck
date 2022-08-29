@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BloodReceiver">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_google_signin_btn_text_dark_default"
+        android:orientation="horizontal"
+       >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+
+            <Spinner
+                android:id="@+id/btngetBloodGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:entries="@array/Blood_Group"
+                android:padding="20dp"></Spinner>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/round_box1"
+           android:backgroundTint="@color/specialgreen"
+            android:gravity="center"
+            android:text="Search"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+        <ImageView
+            android:id="@+id/listofblood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/blood_match"
+            android:layout_marginTop="@dimen/_30sdp"/>
+        <TextView
+            android:id="@+id/nodata"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:gravity="center"
+            android:fontFamily="@font/val"
+            android:textColor="@color/specialgreen"
+            android:text="Sorry ! no donor is available."/>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recv_donors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+</LinearLayout>
+
+</FrameLayout>

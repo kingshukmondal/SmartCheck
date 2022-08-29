@@ -55,7 +55,22 @@ public class Dashboard extends AppCompatActivity {
         medicinecost=findViewById(R.id.medicinecost);
         claimstatus=findViewById(R.id.complainstatus);
         bloodavailbility=findViewById(R.id.bloodavailbility);
+        nearbyopitals=findViewById(R.id.nearbylocation);
         ///////////////////////////////////////////////
+
+        bloodavailbility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Bloodavailblitypage.class));
+            }
+        });
+
+        nearbyopitals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),nearby_hospitals.class));
+            }
+        });
 
         raiseacomplain.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/specialgreen"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DonorPager">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:gravity="top"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/border2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="Blood Donor"
+                android:textStyle="bold"
+                android:fontFamily="@font/val"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_40sdp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:boxBackgroundColor="#A29CF8"
+                app:boxStrokeColor="#A29CF8"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:background="@drawable/round_shape1"
+                    android:backgroundTint="#EBEAFF"
+                    android:hint="NAME"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:textColorHint="#130F5D"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <RadioGroup
+                    android:id="@+id/radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_shape1"
+                android:backgroundTint="#EBEAFF"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginVertical="@dimen/_20sdp"
+                android:orientation="horizontal"
+                >
+                <RadioButton
+                    android:id="@+id/male"
+                    android:buttonTint="@color/specialgreen"
+                    android:layout_width="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_height="wrap_content"
+                    android:text="MALE"/>
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:buttonTint="@color/specialgreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FEMALE"/>
+                <RadioButton
+                    android:id="@+id/others"
+                    android:buttonTint="@color/specialgreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OTHER"/>
+            </RadioGroup>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="#A29CF8"
+                app:boxStrokeColor="#A29CF8"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:background="@drawable/round_shape1"
+                    android:backgroundTint="#EBEAFF"
+                    android:hint="CONTACT NO."
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:textColorHint="#130F5D"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_20sdp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/white"
+                    android:text="BLOOD GROUP :" />
+
+                <Spinner
+                    android:id="@+id/SpinnerBlood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_25sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/round_shape1"
+                    android:backgroundTint="#EBEAFF"
+                    android:entries="@array/Blood_Group"
+                    android:textColor="@color/white"
+                    android:inputType="text"
+                    android:padding="10dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/white"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:text="STATE :" />
+                <Spinner
+                    android:id="@+id/SpinnerState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:textSize="@dimen/_25sdp"
+                    android:background="@drawable/round_shape1"
+                    android:backgroundTint="#EBEAFF"
+                    android:entries="@array/division_list"
+                    android:textColor="@color/white"
+                    android:inputType="text"
+                    android:padding="10dp" />
+
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_10sdp"
+                app:boxBackgroundColor="#A29CF8"
+                app:boxStrokeColor="#A29CF8"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/location"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:background="@drawable/round_shape1"
+                    android:backgroundTint="#EBEAFF"
+                    android:hint="PIN NUMBER"
+                    android:inputType="textPostalAddress"
+                    android:maxLines="1"
+                    android:textColorHint="#130F5D"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_10sdp"
+                app:boxBackgroundColor="#A29CF8"
+                app:boxStrokeColor="#A29CF8"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/age"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:background="@drawable/round_shape1"
+                    android:backgroundTint="#EBEAFF"
+                    android:hint="Age"
+                    android:inputType="textPostalAddress"
+                    android:maxLines="1"
+                    android:textColorHint="#130F5D"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/LastDonation"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_weight="2"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:drawableEnd="@drawable/ic_baseline_calendar_month_24"
+                    android:background="@drawable/round_shape1"
+                    android:backgroundTint="#EBEAFF"
+                    android:hint="Last Donation"
+                    android:textSize="@dimen/_10sdp"
+                    android:inputType="textPostalAddress"
+                    android:maxLines="1"
+                    android:textColorHint="#130F5D"
+                    />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_submit"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:background="@drawable/round3"
+                android:text="SUBMIT"
+                android:backgroundTint="#00BFA5"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:textColor="#130F5D"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60sdp"
+                />
+        </LinearLayout>
+</ScrollView>
+
+</FrameLayout>

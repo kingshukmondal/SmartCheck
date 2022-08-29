@@ -37,6 +37,7 @@ public class Register extends AppCompatActivity {
 
     TextInputEditText name, email, password, confrimpassword;
     LinearLayout ll_signup;
+    LinearLayout craccsignup;
 
     ProgressDialog pd;
 
@@ -59,6 +60,14 @@ public class Register extends AppCompatActivity {
         pd.setTitle("Registration");
         pd.setMessage("Loading................");
         pd.setCancelable(false);
+
+        craccsignup=findViewById(R.id.craccsignup);
+        craccsignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),LoginPage.class));
+            }
+        });
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -98,7 +107,7 @@ public class Register extends AppCompatActivity {
         });
 
         ll_signup = findViewById(R.id.ll_signup);
-        ll_signup.setOnClickListener(new View.OnClickListener() {
+            ll_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 name1 = name.getText().toString();
@@ -156,7 +165,7 @@ public class Register extends AppCompatActivity {
 
 
     void sheetslogin() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbzs48Db3aBtLp2ikiX0at-eXTSkCxNDfKyLLI22456v3lRyOBjzPbCShKL4qI7nq5fk5w/exec",
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbwXIXqkXPHtHa67x2mEQvHbF8U4kdKA9OkIBg1f2BXfB6NvZttK24aZKrJkCrPp6oMclA/exec",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
